@@ -15,3 +15,15 @@ elif [ $# -gt 1 ]; then
 fi
 
 echo "$dir"
+
+
+files=$(find "$dir" -mindepth 1 -maxdepth 1 -type f -name "*log" -mtime -7)
+
+#count
+if [ -z "$files" ] ; then
+  numFiles=0
+else
+  numFiles=$(echo "$files" | wc -l)
+  #echo $numFiles
+fi
+  
